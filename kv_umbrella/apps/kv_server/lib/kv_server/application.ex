@@ -12,6 +12,8 @@ defmodule KVServer.Application do
     children = [
       # Starts a worker by calling: KVServer.Worker.start_link(arg1, arg2, arg3)
       # worker(KVServer.Worker, [arg1, arg2, arg3]),
+      supervisor(Task.Supervisor, [[name: KVServer.TaskSupervisor]]),
+      worker(Task, [KVServer, :accept, [2121]])
     ]
 
     # See http://elixir-lang.org/docs/stable/elixir/Supervisor.html

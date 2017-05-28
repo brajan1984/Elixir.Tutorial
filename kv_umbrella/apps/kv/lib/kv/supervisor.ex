@@ -7,7 +7,7 @@ defmodule KV.Supervisor do
 
     def init(:ok) do
         children = [
-            KV.Bootstrap.main_registry_worker,
+            worker(KV.Registry, [KV.Registry]),
             supervisor(KV.Bucket.Supervisor, [])
         ]
         

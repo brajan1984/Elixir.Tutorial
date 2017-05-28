@@ -23,7 +23,7 @@ defmodule KVServer do
     #If we didn’t do this, the acceptor would bring down all the clients if it crashed
     #because sockets would be tied to the process that accepted them (which is the default behaviour).
     :ok = :gen_tcp.controlling_process(client, pid)
-
+    
     loop_acceptor(socket)
   end
 

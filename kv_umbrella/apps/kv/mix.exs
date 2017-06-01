@@ -21,6 +21,7 @@ defmodule KV.Mixfile do
     # Specify extra applications you'll use from Erlang/Elixir
     [
       extra_applications: [:logger],
+      env: [routing_table: []],
       mod: {KV, []}
     ]
   end
